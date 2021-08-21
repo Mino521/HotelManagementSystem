@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8082
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -13,7 +13,7 @@ spring:
     maxWait: 60000
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1 FROM DUAL
+    validationQuery: SELECT 1
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: entity

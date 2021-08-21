@@ -12,6 +12,10 @@ import java.util.Map;
 public class TestController {
     private TestService testService;
 
+    public TestController(TestService testService) {
+        this.testService = testService;
+    }
+
     @RequestMapping("/test")
     @ResponseBody
     public String test(){

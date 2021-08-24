@@ -63,7 +63,7 @@ setInterval(function(){
     <li><a href="#">注销</a></li>
     <li><a href="login.html" target="_parent">退出</a></li>
   </ul>
-  <div class="user"> <span>当前用户，天下集团</span> </div>
+  <div class="user"> <span>Current user: ${sessionScope.username}</span> </div>
 </div>
 </body>
 </html>

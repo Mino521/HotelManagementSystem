@@ -32,3 +32,6 @@ INSERT INTO `hotelsys`.`sys_authority` (`id`, `authority_name`, `parent`) VALUES
 INSERT INTO `hotelsys`.`sys_authority` (`id`, `authority_name`, `parent`) VALUES ('20', 'user info alter', '5');
 INSERT INTO `hotelsys`.`sys_authority` (`id`, `authority_name`, `parent`) VALUES ('21', 'user info add', '5');
 INSERT INTO `hotelsys`.`sys_authority` (`id`, `authority_name`, `parent`) VALUES ('22', 'customer advice', '6');
+
+INSERT INTO `hotelsys`.`sys_usr` (`id`, `usrname`, `psw`) VALUES ('0', 'admin', 'b24aa70b69405730a129e671938496ad');
+INSERT INTO `hotelsys`.`sys_usr` (`id`, `usrname`, `psw`) VALUES ('1', 'Tim', 'd5d23b080c52f070e3dc61821f325c7d');

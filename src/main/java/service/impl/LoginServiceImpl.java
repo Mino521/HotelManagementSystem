@@ -1,11 +1,14 @@
 package service.impl;
 
+import entity.FirstClassMenu;
 import mapper.LoginMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import service.LoginService;
 import utils.MD5;
+
+import java.util.List;
 
 @Service
 @Transactional(readOnly = false)
@@ -26,5 +29,9 @@ public class LoginServiceImpl implements LoginService {
         int flag = loginMapper.login(username,encrtptedPwd);
 
         return flag > 0 ? true : false;
+    }
+
+    public List<FirstClassMenu> getMenus(){
+        return loginMapper.getMenus();
     }
 }

@@ -44,10 +44,10 @@
         <form action="<%=basePath%>login.do" method="post">
         <ul>
             <li><input name="username" type="text" class="loginuser" value="admin" onclick="JavaScript:this.value=''"
-                       pattern="\w{3,12}" required="required" placeholder="A combination of 3-12 digit number, letter, or symbol"/>
+                       pattern="\w{3,12}" required="required" placeholder="A combination of 3-12 digit number, letter or underline"/>
             </li>
             <li><input name="password" type="password" class="loginpwd" value=""
-                       onclick="JavaScript:this.value=''" pattern="\w{4,20}" placeholder="A combination of 4-20 digit number, letter, or symbol"/></li>
+                       onclick="JavaScript:this.value=''" pattern="\w{4,20}" placeholder="A combination of 4-20 digit number, letter or underline"/></li>
             <li><input type="submit" class="loginbtn" value="Log in"/>
                 <label><input name="" type="checkbox" value="" checked="checked"/>Remember pwd</label>
                 <label><a href="#">forget pwd？</a></label></li>

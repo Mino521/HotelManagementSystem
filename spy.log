@@ -1,7 +1,0 @@
-1629544412309|1|statement|connection 561|url jdbc:p6spy:mysql://localhost:3306/hotel?useSSL=false|SELECT * FROM test|SELECT * FROM test
-1629544609114|1|statement|connection 0|url jdbc:p6spy:mysql://localhost:3306/hotel?useSSL=false|SELECT * FROM test|SELECT * FROM test
-1629544872143|1|statement|connection 0|url jdbc:p6spy:mysql://localhost:3306/hotel?useSSL=false|SELECT * FROM test|SELECT * FROM test
-1629544944305|1|statement|connection 0|url jdbc:p6spy:mysql://localhost:3306/hotel?useSSL=false|SELECT * FROM test|SELECT * FROM test
-1629544969469|1|statement|connection 0|url jdbc:p6spy:mysql://localhost:3306/hotel?useSSL=false|SELECT * FROM test|SELECT * FROM test
-1629545006144|2|statement|connection 0|url jdbc:p6spy:mysql://localhost:3306/hotel?useSSL=false|SELECT * FROM test|SELECT * FROM test
-1629545147136|1|statement|connection 0|url jdbc:p6spy:mysql://localhost:3306/hotel?useSSL=false|SELECT * FROM test|SELECT * FROM test

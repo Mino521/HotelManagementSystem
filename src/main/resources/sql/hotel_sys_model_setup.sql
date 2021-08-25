@@ -128,6 +128,7 @@ CREATE TABLE IF NOT EXISTS `hotelsys`.`user_authority` (
   `user_id` BIGINT(20) NOT NULL,
   `authority_id` BIGINT(20) NOT NULL,
   INDEX `authority_connect2_idx` (`authority_id` ASC) VISIBLE,
+  PRIMARY KEY (`user_id`,`authority_id`),
   CONSTRAINT `authority_connect`
     FOREIGN KEY (`user_id`)
     REFERENCES `hotelsys`.`sys_usr` (`id`)

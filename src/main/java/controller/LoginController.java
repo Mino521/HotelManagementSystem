@@ -17,11 +17,13 @@ public class LoginController {
 
     @RequestMapping("/login.do")
     public String userLogin(String username, String password, HttpSession session) throws Exception {
-        boolean flag = loginService.isLoginSuccess(username,password);
-        if(flag){
+        Long id = loginService.isLoginSuccess(username,password);
+        //System.out.println(id);
+        if(id != null){
             session.setAttribute("username",username);
 
-            List<FirstClassMenu> firstClassMenus = loginService.getMenus();
+            List<FirstClassMenu> firstClassMenus = loginService.getMenusByUserId(id);
+            System.out.println(firstClassMenus);
             session.setAttribute("firstClassMenus", firstClassMenus);
 
             return "redirect:/pages/admin/index.jsp";

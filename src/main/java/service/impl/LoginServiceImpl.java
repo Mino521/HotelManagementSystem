@@ -16,22 +16,26 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private LoginMapper loginMapper;
 
-    public boolean isLoginSuccess(String username, String password) throws Exception {
+    public Long isLoginSuccess(String username, String password) throws Exception {
         String regex1 = "\\w{3,12}";
         String regex2 = "\\w{4,20}";
 
         boolean flag1 = username.matches(regex1);
         boolean flag2 = password.matches(regex2);
         if(!flag1 || !flag2)
-            return false;
+            return null;
 
         String encrtptedPwd = MD5.finalMD5(password);
-        int flag = loginMapper.login(username,encrtptedPwd);
+        Long id = loginMapper.login(username,encrtptedPwd);
 
-        return flag > 0 ? true : false;
+        return id;
     }
 
     public List<FirstClassMenu> getMenus(){
         return loginMapper.getMenus();
+    }
+
+    public List<FirstClassMenu> getMenusByUserId(Long userId){
+        return loginMapper.getMenusByUserId(userId);
     }
 }

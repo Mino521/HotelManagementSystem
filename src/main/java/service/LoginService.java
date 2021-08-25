@@ -5,7 +5,9 @@ import entity.FirstClassMenu;
 import java.util.List;
 
 public interface LoginService {
-    boolean isLoginSuccess(String username, String password) throws Exception;
+    Long isLoginSuccess(String username, String password) throws Exception;
 
-    public List<FirstClassMenu> getMenus();
+    List<FirstClassMenu> getMenus();
+
+    List<FirstClassMenu> getMenusByUserId(Long userId);
 }

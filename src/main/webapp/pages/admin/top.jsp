@@ -39,7 +39,7 @@ setInterval(function(){
 <body style="background:url(<%=basePath %>/static/images/topbg.gif) repeat-x;">
 <div class="topleft"> <a href="#"><img src="<%=basePath %>/static/images/logo1.png" title="系统首页" /></a> </div>
 <ul class="nav">
-  <li><a href="bill/checkin.html"target="rightFrame"><img src="<%=basePath %>/static/images/icon09.png" title="客人入住" />
+  <li><a href="bill/checkin.jsp" target="rightFrame"><img src="<%=basePath %>/static/images/icon09.png" title="客人入住" />
     <h2>客人入住</h2>
     </a></li>
     <li><a href="order/addorder.html"  target="rightFrame"><img src="<%=basePath %>/static/images/icon02.png" title="添加订单" />

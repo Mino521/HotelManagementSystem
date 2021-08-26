@@ -72,3 +72,5 @@ INSERT INTO `hotelsys`.`user_authority` (`user_id`, `authority_id`) VALUES ('2',
 INSERT INTO `hotelsys`.`user_authority` (`user_id`, `authority_id`) VALUES ('2', '19');
 INSERT INTO `hotelsys`.`user_authority` (`user_id`, `authority_id`) VALUES ('2', '20');
 INSERT INTO `hotelsys`.`user_authority` (`user_id`, `authority_id`) VALUES ('2', '21');
+
+UPDATE `hotelsys`.`sys_authority` SET `authority_url` = '/getCheckInInfo.do' WHERE (`id` = '7');

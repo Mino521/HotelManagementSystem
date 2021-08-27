@@ -17,7 +17,7 @@
         INNER JOIN
         (SELECT authority_name AS secondClassName, authority_url AS url, parent FROM sys_authority
         WHERE parent != 0) m2
-        ON m1.id = m2.parent;
+        ON m1.id = m2.parent
     </select>
 
     <resultMap type="entity.FirstClassMenu" id="firstClassMenuByUserId">
@@ -44,6 +44,6 @@
         inner join sys_authority sa
         on sa.id = ua.authority_id
         where user_id = #{userId} and parent != 0) t2
-        on t1.id = t2.parent;
+        on t1.id = t2.parent
     </select>
 </mapper>

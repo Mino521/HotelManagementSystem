@@ -8,12 +8,13 @@ import org.springframework.transaction.annotation.Transactional;
 import service.LoginService;
 import utils.MD5;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 @Transactional(readOnly = false)
 public class LoginServiceImpl implements LoginService {
-    @Autowired
+    @Resource
     private LoginMapper loginMapper;
 
     public Long isLoginSuccess(String username, String password) throws Exception {
@@ -31,10 +32,12 @@ public class LoginServiceImpl implements LoginService {
         return id;
     }
 
+    @Override
     public List<FirstClassMenu> getMenus(){
         return loginMapper.getMenus();
     }
 
+    @Override
     public List<FirstClassMenu> getMenusByUserId(Long userId){
         return loginMapper.getMenusByUserId(userId);
     }

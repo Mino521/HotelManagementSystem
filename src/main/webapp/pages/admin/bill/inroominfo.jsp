@@ -10,7 +10,38 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>无标题文档</title>
     <link href="<%=basePath %>/static/css/style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="<%=basePath %>/static/js/jquery.js"></script>
+    <!-- 引入bootstrap分页 -->
+    <link rel="stylesheet" href="<%=basePath%>/static/js/bootstrap/bootstrap.css" />
+    <script src="<%=basePath%>/static/js/bootstrap/jquery.min.js"></script>
+    <script src="<%=basePath%>/static/js/bootstrap/bootstrap.min.js"></script>
+    <script src="<%=basePath%>/static/js/bootstrap/bootstrap-paginator.js"></script>
+    <script>
+        $(function() {
+            $('#pagination').bootstrapPaginator({
+                bootstrapMajorVersion: 3,
+                currentPage: ${requestScope.pageInfo.pageNum },
+                totalPages: ${requestScope.pageInfo.pages },
+                pageUrl: function(type, page, current) {
+                    return '/getCheckInInfo.do?pageNum=' + page;
+                },
+                itemTexts: function(type, page, current) {
+                    switch(type) {
+                        case "first":
+                            return "first";
+                        case "prev":
+                            return "last";
+                        case "next":
+                            return "next";
+                        case "last":
+                            return "last";
+                        case "page":
+                            return page;
+                    }
+                }
+            });
+        });
+    </script>
+<%--    <script type="text/javascript" src="<%=basePath %>/static/js/jquery.js"></script>--%>
     <script type="text/javascript">
         $(document).ready(function () {
             $(".click").click(function () {
@@ -73,9 +104,9 @@
         <thead>
         <tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
-            <th>编号</th>
-            <th>房间号</th>
-            <th>房间类型</th>
+            <th>No</th>
+            <th>room number</th>
+            <th>room type</th>
             <th>客人姓名</th>
             <th>性别</th>
             <th>身份证号码</th>
@@ -85,36 +116,26 @@
             <th>操作</th>
         </tr>
         </thead>
-        <tbody>
+        <c:forEach items="${requestScope.pageInfo.list}" var="map" varStatus="num">
         <tr>
             <td><input name="" type="checkbox" value=""/></td>
-            <td>1</td>
-            <td>8201</td>
-            <td>单人间</td>
-            <td>赵子龙</td>
-            <td>男</td>
-            <td>411311199001015599</td>
-            <td>13012345678</td>
-            <td>200</td>
-            <td>2016-06-01</td>
-            <td><a href="out.jsp" class="tablelink">退房</a> <a href="#" class="tablelink"> 删除</a></td>
+            <td>${num.count}</td>
+            <td>${map.room_num}</td>
+            <td>${map.type_name}</td>
+            <td>${map.customer_name}</td>
+            <td>${map.gender}</td>
+            <td>${map.licence_id}</td>
+            <td>${map.phone_num}</td>
+            <td>${map.bond}</td>
+            <td>${map.check_in_time}</td>
+            <td><a href="out.jsp" class="tablelink">Check out </a><a href="#" class="tablelink"> Delete</a></td>
         </tr>
+        </c:forEach>
         </tbody>
     </table>
-    <div class="pagin">
-        <div class="message">共<i class="blue">1234</i>条记录，当前显示第&nbsp;<i class="blue">1&nbsp;</i>页</div>
-        <ul class="paginList">
-            <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-            <li class="paginItem current"><a href="javascript:;">1</a></li>
-            <li class="paginItem"><a href="javascript:;">2</a></li>
-            <li class="paginItem"><a href="javascript:;">3</a></li>
-            <li class="paginItem"><a href="javascript:;">4</a></li>
-            <li class="paginItem"><a href="javascript:;">5</a></li>
-            <li class="paginItem more"><a href="javascript:;">...</a></li>
-            <li class="paginItem"><a href="javascript:;">10</a></li>
-            <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
-        </ul>
-    </div>
+
+    <ul id="pagination"></ul>
+
     <div class="tip">
         <div class="tiptop"><span>提示信息</span><a></a></div>
         <div class="tipinfo"><span><img src="<%=basePath %>/static/images/ticon.png"/></span>

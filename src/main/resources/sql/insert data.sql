@@ -74,3 +74,7 @@ INSERT INTO `hotelsys`.`user_authority` (`user_id`, `authority_id`) VALUES ('2',
 INSERT INTO `hotelsys`.`user_authority` (`user_id`, `authority_id`) VALUES ('2', '21');
 
 UPDATE `hotelsys`.`sys_authority` SET `authority_url` = '/getCheckInInfo.do' WHERE (`id` = '7');
+INSERT INTO `hotelsys`.`rooms` (`id`, `room_num`, `room_state`, `room_type_id`) VALUES ('1014', '8520', '1', '4');
+INSERT INTO `hotelsys`.`check_in_info` (`id`, `customer_name`, `gender`, `vip`, `licence_id`, `phone_num`, `bond`, `check_in_time`, `room_id`) VALUES ('0', 'Bolu Chen', '0', '1', '411311199', '13012345678', '200', '2021-01-28 11:57:00', '1014');
+INSERT INTO `hotelsys`.`check_in_info` (`id`, `customer_name`, `gender`, `vip`, `licence_id`, `phone_num`, `bond`, `check_in_time`, `room_id`) VALUES ('1', 'Jamie Wong', '1', '1', '411311111', '13087654321', '250', '2021-01-28 13:14:00', '1');
+UPDATE `hotelsys`.`rooms` SET `room_state` = '1' WHERE (`id` = '1');

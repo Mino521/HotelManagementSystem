@@ -14,4 +14,7 @@ public interface CheckInMapper {
 
     @Delete("DELETE FROM `check_in_info` WHERE id=#{param1}")
     int deleteById(Long id);
+
+    @Delete("DELETE FROM `check_in_info` WHERE id IN (${idAttr})")
+    int batchDel(Map<String, Object> paramMap);
 }

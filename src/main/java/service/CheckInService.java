@@ -26,4 +26,11 @@ public interface CheckInService{
      * @return
      */
     boolean deleteById(Long id);
+
+    /**
+     *
+     * @param idAttr
+     * @return
+     */
+    boolean batchDel(String idAttr);
 }

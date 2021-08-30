@@ -38,8 +38,14 @@ public class CheckInInfoController {
 
     @GetMapping("/deleteInfoById.do")
     public String deleteInfoById(@RequestParam Long id){
-        System.out.println(id);
+        //System.out.println(id);
         boolean flag = checkInService.deleteById(id);
+        return "redirect:/getCheckInInfo.do";
+    }
+
+    @PostMapping("/batchDel.do")
+    public String batchDel(String idAttr){
+        boolean flag = checkInService.batchDel(idAttr);
         return "redirect:/getCheckInInfo.do";
     }
 }

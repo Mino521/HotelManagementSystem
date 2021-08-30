@@ -24,4 +24,9 @@ public class CheckInServiceImpl implements CheckInService {
     public List<Map<String,Object>> selectAllCheckInInfoByFilter(String type, String keyword){
         return checkInMapper.getAllCheckInInfoByFilter(type,keyword);
     }
+
+    @Override
+    public boolean deleteById(Long id){
+        return checkInMapper.deleteById(id) >= 1;
+    }
 }

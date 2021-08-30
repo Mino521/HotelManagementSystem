@@ -19,4 +19,11 @@ public interface CheckInService{
      * @return
      */
     List<Map<String,Object>> selectAllCheckInInfoByFilter(String type, String keyword);
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    boolean deleteById(Long id);
 }

@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +21,7 @@ public class CheckInInfoController {
 
     @RequestMapping("/getCheckInInfo.do")
     public String getCheckInInfo(@RequestParam(name = "pageNum",defaultValue = "1") Integer pageNum,
-                                 @RequestParam(name = "pageSize",defaultValue = "2") Integer pageSize,
+                                 @RequestParam(name = "pageSize",defaultValue = "10") Integer pageSize,
                                  Model model){
         List<Map<String,Object>> allCheckInInfo = checkInService.selectAllCheckInInfo(pageNum,pageSize);
         PageInfo<Map<String,Object>> info = new PageInfo<>(allCheckInInfo);
@@ -33,5 +34,12 @@ public class CheckInInfoController {
         List<Map<String,Object>> infoList = checkInService.selectAllCheckInInfoByFilter(type,keyword);
         model.addAttribute("infoList", infoList);
         return "admin/bill/inroominfo_filter.jsp";
+    }
+
+    @GetMapping("/deleteInfoById.do")
+    public String deleteInfoById(@RequestParam Long id){
+        System.out.println(id);
+        boolean flag = checkInService.deleteById(id);
+        return "redirect:/getCheckInInfo.do";
     }
 }

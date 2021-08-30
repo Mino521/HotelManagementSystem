@@ -128,7 +128,7 @@
             <td>${map.phone_num}</td>
             <td>${map.bond}</td>
             <td>${map.check_in_time}</td>
-            <td><a href="out.jsp" class="tablelink">Check out </a><a href="#" class="tablelink"> Delete</a></td>
+            <td><a href="out.jsp" class="tablelink">Check out </a><a href="<%=basePath%>/deleteInfoById.do?id=${map.id}" class="tablelink"> Delete</a></td>
         </tr>
         </c:forEach>
         </tbody>

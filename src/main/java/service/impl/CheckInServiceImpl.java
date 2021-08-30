@@ -19,4 +19,9 @@ public class CheckInServiceImpl implements CheckInService {
         PageHelper.startPage(pageNum,pageSize);
         return checkInMapper.getAllCheckInInfo();
     }
+
+    @Override
+    public List<Map<String,Object>> selectAllCheckInInfoByFilter(String type, String keyword){
+        return checkInMapper.getAllCheckInInfoByFilter(type,keyword);
+    }
 }

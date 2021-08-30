@@ -1,6 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
 %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,44 +25,36 @@
 
 <body style="background-color:#df7611; background-image:url(<%=basePath %>/static/images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
 
-
 <div id="mainBody">
     <div id="cloud1" class="cloud"></div>
     <div id="cloud2" class="cloud"></div>
 </div>
-
 
 <div class="logintop">
     <span>Welcome</span>
 </div>
 
 <div class="loginbody">
-
     <span class="systemlogo"></span>
-
     <div class="loginbox">
-        <form action="<%=basePath%>login.do" method="post">
-        <ul>
-            <li><input name="username" type="text" class="loginuser" value="admin" onclick="JavaScript:this.value=''"
-                       pattern="\w{3,12}" required="required" placeholder="A combination of 3-12 digit number, letter or underline"/>
-            </li>
-            <li><input name="password" type="password" class="loginpwd" value=""
-                       onclick="JavaScript:this.value=''" pattern="\w{4,20}" placeholder="A combination of 4-20 digit number, letter or underline"/></li>
-            <li><input type="submit" class="loginbtn" value="Log in"/>
-                <label><input name="" type="checkbox" value="" checked="checked"/>Remember pwd</label>
-                <label><a href="#">forget pwd？</a></label></li>
-        </ul>
+        <form action="<%=basePath%>/login.do" method="post">
+            <ul>
+                <li><input name="username" type="text" class="loginuser" value="admin"
+                           onclick="JavaScript:this.value=''"
+                           pattern="\w{3,12}" required="required"
+                           placeholder="A combination of 3-12 digit number, letter or underline"/>
+                </li>
+                <li><input name="password" type="password" class="loginpwd" value=""
+                           onclick="JavaScript:this.value=''" pattern="\w{4,20}"
+                           placeholder="A combination of 4-20 digit number, letter or underline"/></li>
+                <li><input type="submit" class="loginbtn" value="Log in"/>
+                    <label><input name="" type="checkbox" value="" checked="checked"/>Remember pwd</label>
+                    <label><a href="#">forget pwd？</a></label></li>
+            </ul>
         </form>
-
-
     </div>
-
 </div>
 
-
-<!--<div class="loginbm">版权所有  2014  <a href="http://www.uimaker.com">uimaker.com</a>  仅供学习交流，勿用于任何商业用途</div>-->
-
-
-</body>
+</body
 
 </html>

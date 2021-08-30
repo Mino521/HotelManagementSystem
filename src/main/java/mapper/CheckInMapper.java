@@ -8,4 +8,6 @@ import java.util.Map;
 @Mapper
 public interface CheckInMapper {
     List<Map<String, Object>> getAllCheckInInfo();
+
+    List<Map<String, Object>> getAllCheckInInfoByFilter(String type, String keyword);
 }

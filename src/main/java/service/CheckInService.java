@@ -11,4 +11,12 @@ public interface CheckInService{
      * @return
      */
     List<Map<String,Object>> selectAllCheckInInfo(Integer pageNum, Integer pageSize);
+
+    /**
+     *
+     * @param type
+     * @param keyword
+     * @return
+     */
+    List<Map<String,Object>> selectAllCheckInInfoByFilter(String type, String keyword);
 }

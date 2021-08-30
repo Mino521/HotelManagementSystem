@@ -8,4 +8,24 @@
         inner join room_type rt
         on r.room_type_id = rt.id
     </select>
+
+    <select id="getAllCheckInInfoByFilter" resultType="java.util.Map">
+        select r.room_num, rt.type_name, cii.customer_name, cii.gender, cii.licence_id, cii.phone_num, cii.bond, cii.check_in_time
+        from check_in_info cii inner join rooms r
+        on cii.room_id = r.id
+        inner join room_type rt
+        on r.room_type_id = rt.id
+        <if test="param1==0">
+            WHERE r.room_num=#{param2}
+        </if>
+        <if test="param1==1">
+            WHERE cii.customer_name=#{param2}
+        </if>
+        <if test="param1==2">
+            WHERE cii.phone_num=#{param2}
+        </if>
+        <if test="param1==3">
+            WHERE cii.licence_id=#{param2}
+        </if>
+    </select>
 </mapper>

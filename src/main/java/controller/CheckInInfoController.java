@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import service.CheckInService;
@@ -25,5 +26,12 @@ public class CheckInInfoController {
         PageInfo<Map<String,Object>> info = new PageInfo<>(allCheckInInfo);
         model.addAttribute("pageInfo", info);
         return "admin/bill/inroominfo.jsp";
+    }
+
+    @PostMapping("/getCheckInInfoByFilter.do")
+    public String getCheckInInfoByFilter(String type, String keyword, Model model){
+        List<Map<String,Object>> infoList = checkInService.selectAllCheckInInfoByFilter(type,keyword);
+        model.addAttribute("infoList", infoList);
+        return "admin/bill/inroominfo_filter.jsp";
     }
 }

@@ -10,38 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>无标题文档</title>
     <link href="<%=basePath %>/static/css/style.css" rel="stylesheet" type="text/css"/>
-    <!-- 引入bootstrap分页 -->
-    <link rel="stylesheet" href="<%=basePath%>/static/js/bootstrap/bootstrap.css" />
-    <script src="<%=basePath%>/static/js/bootstrap/jquery.min.js"></script>
-    <script src="<%=basePath%>/static/js/bootstrap/bootstrap.min.js"></script>
-    <script src="<%=basePath%>/static/js/bootstrap/bootstrap-paginator.js"></script>
-    <script>
-        $(function() {
-            $('#pagination').bootstrapPaginator({
-                bootstrapMajorVersion: 3,
-                currentPage: ${requestScope.pageInfo.pageNum },
-                totalPages: ${requestScope.pageInfo.pages },
-                pageUrl: function(type, page, current) {
-                    return '/getCheckInInfo.do?pageNum=' + page;
-                },
-                itemTexts: function(type, page, current) {
-                    switch(type) {
-                        case "first":
-                            return "first";
-                        case "prev":
-                            return "last";
-                        case "next":
-                            return "next";
-                        case "last":
-                            return "last";
-                        case "page":
-                            return page;
-                    }
-                }
-            });
-        });
-    </script>
-<%--    <script type="text/javascript" src="<%=basePath %>/static/js/jquery.js"></script>--%>
+    <script type="text/javascript" src="<%=basePath %>/static/js/jquery.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $(".click").click(function () {
@@ -116,7 +85,7 @@
             <th>Operation</th>
         </tr>
         </thead>
-        <c:forEach items="${requestScope.pageInfo.list}" var="map" varStatus="num">
+        <c:forEach items="${requestScope.infoList}" var="map" varStatus="num">
         <tr>
             <td><input name="" type="checkbox" value=""/></td>
             <td>${num.count}</td>
@@ -133,8 +102,6 @@
         </c:forEach>
         </tbody>
     </table>
-
-    <ul id="pagination"></ul>
 
     <div class="tip">
         <div class="tiptop"><span>Information</span><a></a></div>
